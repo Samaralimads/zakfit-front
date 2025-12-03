@@ -1,22 +1,22 @@
 //
-//  ActivityView.swift
+//  GoalsView.swift
 //  zakfit-front
 //
-//  Created by Samara Lima da Silva on 02/12/2025.
+//  Created by Samara Lima da Silva on 03/12/2025.
 //
 
 import SwiftUI
 
-struct ActivityView: View {
+struct GoalsView: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            Text("Exercising")
+            Text("Goals")
                 .foregroundStyle(Color.white)
         }
     }
 }
 
 #Preview {
-    ActivityView()
+    GoalsView()
 }

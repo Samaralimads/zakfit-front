@@ -32,13 +32,17 @@ struct LoginView: View {
                     Spacer()
                     
                     VStack(spacing: 20) {
-
-                        TextField("Email", text: $vm.email)
-                            .textFieldStyle(.roundedBorder)
-                            .autocapitalization(.none)
+                        FormInputField(
+                            placeholder: "Email",
+                            text: $vm.email,
+                            keyboard: .emailAddress
+                        )
                         
-                        SecureField("Password", text: $vm.password)
-                            .textFieldStyle(.roundedBorder)
+                        FormInputField(
+                            placeholder: "Password",
+                            text: $vm.password,
+                            isSecure: true
+                        )
                         
                         if vm.isLoading {
                             ProgressView()
@@ -65,6 +69,7 @@ struct LoginView: View {
                             .foregroundStyle(.orange)
                         }
                         .padding(.top, 16)
+                    
                     }
                     .padding(18)
                 }
@@ -72,6 +77,7 @@ struct LoginView: View {
         }
     }
 }
+
     
 #Preview {
     LoginView()

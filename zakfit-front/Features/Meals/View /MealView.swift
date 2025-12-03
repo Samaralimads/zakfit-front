@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MealView: View {
     var body: some View {
-        Text("Meals")
+        ZStack {
+            Color.black.ignoresSafeArea()
+            Text("Meals")
+                .foregroundStyle(Color.white)
+        }
     }
 }
 

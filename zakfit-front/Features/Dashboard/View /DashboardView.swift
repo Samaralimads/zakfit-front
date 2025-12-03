@@ -9,7 +9,11 @@ import SwiftUI
 
 struct DashboardView: View {
     var body: some View {
-        Text("Dashboard")
+        ZStack {
+            Color.black.ignoresSafeArea()
+            Text("Dashboard")
+                .foregroundStyle(Color.white)
+        }
     }
 }
 

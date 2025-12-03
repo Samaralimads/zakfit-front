@@ -101,4 +101,38 @@ final class UserService {
         
         return try JSONDecoder().decode(User.self, from: data)
     }
+    
+    // MARK: - Update Profile
+    static func updateProfile(token: String, user: User) async throws -> User {
+        guard let url = URL(string: "\(baseURL)/users/profile") else {
+            throw URLError(.badURL)
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let body = [
+            "firstName": user.firstName,
+            "lastName": user.lastName,
+            "email": user.email,
+            "age": user.age,
+            "heightCm": user.heightCm,
+            "weightKg": user.weightKg,
+            "gender": user.gender,
+            "dietaryPreferences": user.dietaryPreferences
+        ] as [String: Any?]
+        
+        request.httpBody = try JSONSerialization.data(withJSONObject: body.compactMapValues { $0 })
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let http = response as? HTTPURLResponse,
+              (200..<300).contains(http.statusCode) else {
+            throw URLError(.badServerResponse)
+        }
+        
+        return try JSONDecoder().decode(User.self, from: data)
+    }
 }

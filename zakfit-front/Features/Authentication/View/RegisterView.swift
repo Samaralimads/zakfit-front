@@ -13,7 +13,7 @@ struct RegisterView: View {
     @State private var vm: RegisterViewModel
     
     init() {
-        _vm = State(initialValue: RegisterViewModel()) 
+        _vm = State(initialValue: RegisterViewModel())
     }
     
     var body: some View {
@@ -35,22 +35,35 @@ struct RegisterView: View {
                     
                     Spacer()
                     
-                    VStack(spacing: 15) {
-                        TextField("First Name", text: $vm.firstName)
-                            .textFieldStyle(.roundedBorder)
+                    VStack(spacing: 10) {
+                        FormInputField(
+                            placeholder: "First Name",
+                            text: $vm.firstName
+                        )
                         
-                        TextField("Last Name", text: $vm.lastName)
-                            .textFieldStyle(.roundedBorder)
+                        FormInputField(
+                            placeholder: "Last Name",
+                            text: $vm.lastName
+                        )
                         
-                        TextField("Email", text: $vm.email)
-                            .textFieldStyle(.roundedBorder)
-                            .autocapitalization(.none)
+                        FormInputField(
+                            placeholder: "Email",
+                            text: $vm.email,
+                            keyboard: .emailAddress
+                        )
                         
-                        SecureField("Password", text: $vm.password)
-                            .textFieldStyle(.roundedBorder)
+                        FormInputField(
+                            placeholder: "Password",
+                            text: $vm.password,
+                            isSecure: true
+                        )
                         
-                        SecureField("Confirm Password", text: $vm.confirmPassword)
-                            .textFieldStyle(.roundedBorder)
+                        FormInputField(
+                            placeholder: "Confirm Password",
+                            text: $vm.confirmPassword,
+                            isSecure: true
+                        )
+                        
                         
                         if let error = vm.errorMessage {
                             Text(error)

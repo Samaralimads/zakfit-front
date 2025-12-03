@@ -57,10 +57,10 @@ struct TabBarView: View {
                 }
                 .tag(2)
                 
-            NavigationStack { ProfileView() }
+            NavigationStack { SettingsView() }
                 .tabItem {
                     Image(selectedTab == 3 ? "orange-gear" : "gear")
-                    Text("Profile")
+                    Text("Settings")
                 }
                 .tag(3)
         }
