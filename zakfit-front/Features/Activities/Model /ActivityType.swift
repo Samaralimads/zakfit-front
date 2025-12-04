@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ActiviyType: Codable, Identifiable {
+struct ActivityType: Codable, Identifiable {
     var id: UUID?
     var activity: String
 }

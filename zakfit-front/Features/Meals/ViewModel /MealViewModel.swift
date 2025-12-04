@@ -69,7 +69,7 @@ final class MealViewModel {
         }
     }
 
-    // MARK: - get details
+    // MARK: - Search items
     func items(for meal: Meal) -> [MealItem] {
         meal.mealItemIds.compactMap { id in
             mealItems.first(where: { $0.id == id })

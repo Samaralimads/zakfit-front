@@ -8,7 +8,7 @@
 import Foundation
 
 struct Activity: Codable, Identifiable {
-    var id: UUID?
+    var id: UUID
     var date: Date
     var duration: Int
     var caloriesBurned: Int

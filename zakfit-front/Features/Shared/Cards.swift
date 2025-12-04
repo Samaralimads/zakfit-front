@@ -95,3 +95,28 @@ struct CustomMealItemRow: View {
         .cornerRadius(10)
     }
 }
+
+struct ActivityCard: View {
+    let typeName: String
+    let duration: Int
+    let calories: Int
+    let color: Color
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(typeName)
+                .font(.custom("Montserrat-SemiBold", size: 20))
+            
+            Text("Duration: \(duration) min")
+                .font(.custom("Montserrat-SemiBold", size: 16))
+            
+            Text("Calories: \(calories) kcal")
+                .font(.custom("Montserrat-SemiBold", size: 16))
+        }
+        .foregroundColor(.white)
+        .padding()
+        .frame(maxWidth: .infinity, minHeight: 116)
+        .background(color)
+        .cornerRadius(16)
+    }
+}
