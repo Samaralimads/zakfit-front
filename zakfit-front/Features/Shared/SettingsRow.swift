@@ -22,3 +22,7 @@ struct SettingsRow: View {
     }
 }
 
+#Preview {
+    SettingsRow(label: "teste")
+   
+}

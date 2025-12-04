@@ -66,7 +66,7 @@ struct SettingsView: View {
                                 Spacer()
                                 
                                 Toggle("", isOn: $notificationsEnabled)
-                                    .toggleStyle(SwitchToggleStyle(tint: .orange))
+                                    .toggleStyle(SwitchToggleStyle(tint: .accent))
                                     .labelsHidden()
                             }
                             .padding()

@@ -26,8 +26,6 @@ struct ProfileView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 40)
                 
-                
-                
                 VStack(spacing: 16) {
                     
                     FormInputField(placeholder: "First Name", text: $vm.firstName)

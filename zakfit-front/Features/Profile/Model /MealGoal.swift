@@ -8,7 +8,7 @@
 import Foundation
 
 struct MealGoal: Codable, Identifiable {
-    var id: UUID
+    var id: UUID?
     var userId: UUID
     var kcalGoal: Int
     var proteinGoal: Int

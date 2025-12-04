@@ -13,22 +13,31 @@ final class AppState {
     var user: User?
     
     var showProfileSetupAlert: Bool = false
+    
+    private let hasSeenProfileAlertKey = "hasSeenProfileAlert"
+    var hasSeenProfileAlert: Bool {
+        get { UserDefaults.standard.bool(forKey: hasSeenProfileAlertKey) }
+        set { UserDefaults.standard.set(newValue, forKey: hasSeenProfileAlertKey) }
+    }
 
     var isLoggedIn: Bool {
         token != nil && user != nil
     }
 
-    func login(user: User, token: String) {
+    func login(user: User, token: String, isFromRegistration: Bool = false) {
         self.user = user
         self.token = token
         
-        self.showProfileSetupAlert = true
+        if isFromRegistration && !hasSeenProfileAlert {
+            showProfileSetupAlert = true
+            hasSeenProfileAlert = true
+        }
     }
     
     func logout() {
         self.user = nil
         self.token = nil
-        self.showProfileSetupAlert = false
+        showProfileSetupAlert = false
     }
 }
 
