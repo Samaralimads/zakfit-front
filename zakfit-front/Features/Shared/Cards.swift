@@ -113,10 +113,31 @@ struct ActivityCard: View {
             Text("Calories: \(calories) kcal")
                 .font(.custom("Montserrat-SemiBold", size: 16))
         }
-        .foregroundColor(.white)
+        .foregroundColor(.black)
         .padding()
         .frame(maxWidth: .infinity, minHeight: 116)
         .background(color)
         .cornerRadius(16)
+    }
+}
+
+struct ActivityRow: View {
+    let activity: Activity
+
+    var body: some View {
+        HStack {
+            Text("\(activity.duration) min (\(activity.activityTypeName) session)")
+                .font(.body)
+                .foregroundColor(.white)
+            
+            Spacer()
+            
+            Text("\(activity.caloriesBurned) kcal")
+                .font(.caption)
+                .foregroundColor(.gray)
+        }
+        .padding()
+        .background(Color.white.opacity(0.04))
+        .cornerRadius(10)
     }
 }

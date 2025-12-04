@@ -80,6 +80,13 @@ struct ActivityView: View {
                         }
                     }
                     .padding(.horizontal)
+                    
+                    VStack(spacing: 12) {
+                        ForEach(vm.activities) { activity in
+                            ActivityRow(activity: activity)
+                        }
+                    }
+                 
                 }
                 .padding(.top, 20)
             }
