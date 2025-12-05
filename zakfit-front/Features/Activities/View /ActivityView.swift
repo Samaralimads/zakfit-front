@@ -24,10 +24,24 @@ struct ActivityView: View {
             ScrollView {
                 VStack(alignment: .center, spacing: 24) {
                     
-                    Text("Activity")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(.white)
-                        .padding(.bottom, 20)
+                    HStack {
+                        Text("Activity")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(.white)
+                            .padding(.bottom, 20)
+                         
+                        Spacer()
+                        
+                        Image(systemName: "plus")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.black)
+                            .frame(width: 44, height: 44)
+                            .background(Circle().fill(Color.white))
+                        
+                        
+                    }
+                    .padding()
+                        
 
                     HStack {
                         Button(action: {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var notificationsEnabled = true
+    @Environment(AppState.self) private var appState
     
     var body: some View {
         NavigationStack {
@@ -77,7 +78,7 @@ struct SettingsView: View {
                         .padding(.horizontal)
                         
                         Button {
-                            print("Logging out…")
+                            appState.logout()
                         } label: {
                             Text("Log Out")
                                 .foregroundColor(.white)
@@ -97,4 +98,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environment(AppState())
 }

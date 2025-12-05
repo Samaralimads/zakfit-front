@@ -17,10 +17,23 @@ struct MealView: View {
                 Color.black.ignoresSafeArea()
 
                 VStack {
-                    Text("Meal")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(.white)
-                        .padding(.bottom, 20)
+                    HStack {
+                        Text("Meal")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(.white)
+                            .padding(.bottom, 20)
+                         
+                        Spacer()
+                        
+                        Image(systemName: "plus")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.black)
+                            .frame(width: 44, height: 44)
+                            .background(Circle().fill(Color.white))
+                        
+                        
+                    }
+                    .padding()
 
                     HStack {
                         Button(action: {
